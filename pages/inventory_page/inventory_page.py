@@ -14,3 +14,4 @@ class InventoryPage(BasePage):
     def check_items(self):
 
 
+
