@@ -12,7 +12,7 @@ valid_users = [
     "error_user",
     "visual_user",
 ]
-
+@pytest.mark.authorization
 @pytest.mark.regression
 @pytest.mark.parametrize("username", valid_users)
 def test_successful_login(chromium_page: Page, login_page: LoginPage, username):

@@ -9,7 +9,7 @@ test_cases = [
     ("locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."),
     ("fake_user", "wrong_pass", "Epic sadface: Username and password do not match any user in this service"),
 ]
-
+@pytest.mark.authorization
 @pytest.mark.regression
 @pytest.mark.parametrize("username, password, expected_error", test_cases)
 def test_wrong_login(chromium_page: Page, login_page: LoginPage, username, password, expected_error):

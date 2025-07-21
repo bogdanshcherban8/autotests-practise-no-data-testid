@@ -22,7 +22,6 @@ class LoginBottomPanel(BaseComponent):
         assert "Accepted usernames are:" in credentials_text
         for user in expected_users:
             assert user in credentials_text, f"Username '{user}' not found in login_credentials"
-
         expect(self.login_password).to_be_visible()
         login_password_text = self.login_password.inner_text()
         assert "Password for all users:" in login_password_text
