@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page, expect
 
 from components.base_component import BaseComponent
@@ -11,9 +13,10 @@ class ErrorsDurinLogin(BaseComponent):
 
     def errors_login_off(self):
         expect(self.errors_login).not_to_be_visible()
-
+        self.check_current_url(re.compile(r".*/inventory"))
     def errors_login_on(self, expected_text=str):
         expect(self.errors_login).to_be_visible()
         expect(self.errors_login).to_have_text(expected_text)
         expect(self.errors_button).to_be_visible()
+        self.check_current_url(re.compile(r".*/"))
 

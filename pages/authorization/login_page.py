@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, expect
 
 from components.authorization.errors_during_login import ErrorsDurinLogin
@@ -12,10 +13,12 @@ class LoginPage(BasePage):
         self.username_input = page.locator('[data-test="username"]')
         self.password_input = page.locator('[data-test="password"]')
         self.login_button = page.locator('[data-test="login-button"]')
+
+    @allure.step("Fill login form")
     def login_form(self, username: str, password: str):
-        expect(self.username_input).to_be_visible()
-        self.username_input.fill(username)
-        expect(self.password_input).to_be_visible()
-        self.password_input.fill(password)
-        expect(self.login_button).to_be_visible()
-        self.login_button.click()
+            expect(self.username_input).to_be_visible()
+            self.username_input.fill(username)
+            expect(self.password_input).to_be_visible()
+            self.password_input.fill(password)
+            expect(self.login_button).to_be_visible()
+            self.login_button.click()

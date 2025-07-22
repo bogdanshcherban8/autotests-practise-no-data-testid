@@ -3,6 +3,7 @@ from playwright.sync_api import Page, expect
 from components.inventory.navbar_inventory import NavbarInventory
 from components.inventory.product_sort_container import ProductSortContainer
 from components.inventory.sidebar_inventory import SidebarInventory
+from components.inventory.sidebar_menu import SidebarMenu
 from pages.base_page import BasePage
 
 expected_titles = ['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt',
@@ -22,13 +23,14 @@ class InventoryPage(BasePage):
         super().__init__(page)
         self.navbar_inventory = NavbarInventory(page)
         self.sidebar_inventory = SidebarInventory(page)
+        self.sidebar_menu = SidebarMenu(page)
         self.product_sort_container = ProductSortContainer(page)
         self.item_image = page.locator('[data-test^="inventory-item-"][data-test$="-img"]')
         self.item_title = page.locator('[data-test="inventory-item-name"]')
         self.item_description = page.locator('[data-test="inventory-item-desc"]')
         self.item_price = page.locator('[data-test="inventory-item-price"]')
         self.item_add_cart = page.locator('[data-test^="add-to-cart-"]')
-
+        self.item_back_button = page.locator('[data-test="back-to-products"]')
     def check_items(self):
         for i in range(len(expected_titles)):
             expect(self.item_title.nth(i)).to_be_visible()
