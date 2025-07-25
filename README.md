@@ -2,8 +2,7 @@
 
 This project implements automated tests for
 the [UI Course Test Application](https://www.saucedemo.com/). The
-tests are written using **Python**, **Pytest**, **Allure** and **Playwright**. The test application’s source code is available
-on [GitHub](https://github.com/Nikita-Filonov/qa-automation-engineer-ui-course).
+tests are written using **Python**, **Pytest**, **Allure** and **Playwright**.
 
 ## Project Overview
 
